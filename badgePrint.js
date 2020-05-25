@@ -4,6 +4,7 @@ const delay = require('delay');
 var _ = require('lodash');
 
 var type= "Attendee"
+var lastNumber = 2942
 
 function printParticipant(participant) {
   var filenameBase = 'output/' + participant.ticketId;
@@ -110,11 +111,10 @@ function deleteFile(file) {
 
 async function badgePrint(participants) {
   for (var participant of participants) {
-    if (participant['fullName'] != ' ') {
+    if (participant['fullName'] != ' ' && parseInt(participant['number']) > lastNumber) {
       printParticipant(participant);
+      console.log('Number ' + participant['number'])
       await delay(500);
-    } else {
-      console.log('Empty name, skipping...');
     }
   }
 }

@@ -24,6 +24,7 @@ function createParticipant(participant) {
   var ticketId = participant['Ticket Reference'];
 
   var crewType = participant['Crew type'];
+  var number = participant['Number'];
 
   var modifiedDate = moment(
     participant['Ticket Last Updated Date'],
@@ -51,7 +52,8 @@ function createParticipant(participant) {
     lastName,
     email,
     ticketId,
-    crewType
+    crewType,
+    number
   };
 }
 
